@@ -69,6 +69,7 @@
 
   # Use the latest available kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.supportedFilesystems = [ "ntfs" "btrfs" "zfs" "exfat" ];
 
   # Make NixOS manage power
   powerManagement.enable = true;
@@ -188,7 +189,6 @@
     docker
     docker-compose
     entr
-    exfatprogs
     eza
     fd
     file
@@ -209,7 +209,6 @@
     libinput-gestures
     neofetch
     nodejs_21
-    ntfs3g
     obsidian
     poppler
     qemu
