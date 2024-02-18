@@ -274,7 +274,9 @@
     "electron-19.1.9"
     "electron-25.9.0"
   ];
-  
+
+  programs.partition-manager.enable = true;
+
   # Enable flatpak
   services.flatpak.enable = true;
 
