@@ -225,6 +225,7 @@
     tor-browser
     tree
     tree-sitter
+    udisks
     unar
     unrar
     unzip
