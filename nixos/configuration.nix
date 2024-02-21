@@ -169,7 +169,6 @@
     bat
     bottles
     blender-hip
-    espanso-wayland
     floorp
     figlet
     gimp
