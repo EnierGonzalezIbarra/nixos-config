@@ -69,16 +69,18 @@
 
   # Use the latest available kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.supportedFilesystems = [ "ntfs" "btrfs" "zfs" "exfat" ];
+  boot.supportedFilesystems = [ "ntfs" "btrfs" "exfat" ];
 
-  # Make NixOS manage power
+  # Make NixOS manage power and use upower deamon
   powerManagement.enable = true;
+  services.upower.enable = true;
 
   networking.hostName = "nixos"; # Define your hostname.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://192.168.49.1:8000/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # networking.nftables.enable = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -107,19 +109,24 @@
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   
-  services.xserver.desktopManager.plasma5.enable = true;
+  #services.xserver.desktopManager.plasma5.enable = true;
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
 
   # Configure keymaps
   services.xserver.xkb = {
-    layout = "us-custom";
+    layout = "us";
     variant = "";
     options = "shift:both_capslock";
   };
-  services.xserver.xkb.extraLayouts.us-custom = {
-    description = "US layout custom symbols";
-    languages   = [ "eng" ];
-    symbolsFile = /home/enier/xkb_custom_layout/symbols/us-custom;
-  };
+  #services.xserver.xkb.extraLayouts.us-custom = {
+   # description = "US layout custom symbols";
+    #languages   = [ "eng" ];
+    #symbolsFile = /home/enier/xkb_custom_layout/symbols/us-custom;
+  #};
   console.useXkbConfig = true;
 
   # Enable CUPS to print documents.
@@ -168,13 +175,11 @@
   environment.systemPackages = with pkgs; [
     bat
     bottles
-    blender-hip
+    dolphin
     floorp
     figlet
     gimp
     libsForQt5.kalk
-    libsForQt5.kdenlive
-    libsForQt5.qtstyleplugin-kvantum
     pandoc
     proxychains-ng
     thunderbird
@@ -192,7 +197,7 @@
     fd
     file
     fira-code-nerdfont
-    firefox
+    #firefox
     fzf
     git
     gnumake
@@ -201,7 +206,7 @@
     home-manager
     jq
     kitty
-    krusader
+    #krusader
     lf
     liberation_ttf
     libgcc
@@ -210,34 +215,34 @@
     nodejs_21
     obsidian
     poppler
-    qemu
     redsocks
     ripgrep
     rustup
     speedtest-cli
-		spice
-		spice-gtk
+    spice
+    spice-gtk
     spice-protocol
     tmux
     tor
     tor-browser
     tree
-    tree-sitter
     udisks
     unar
     unrar
     unzip
     vim
-    virt-manager
     vlc
-		virtio-win
-		virt-viewer
+    virtio-win
+    virt-viewer
     wget
-		win-spice
+    win-spice
     wl-clipboard
+    wofi
+    xfce.thunar
+    xfce.thunar-volman
+    xfce.thunar-archive-plugin
     yazi
     zoxide
-    zsh
     zsh-autosuggestions
     zsh-nix-shell
     zsh-syntax-highlighting
@@ -273,8 +278,6 @@
     "electron-19.1.9"
     "electron-25.9.0"
   ];
-
-  programs.partition-manager.enable = true;
 
   # Enable flatpak
   services.flatpak.enable = true;
@@ -338,5 +341,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 }
