@@ -166,6 +166,15 @@
     ];
   };
   users.defaultUserShell = pkgs.zsh;
+
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    (nerdfonts.override { fonts = [ "FiraCode" "Hasklig" ]; })
+  ];
   
   # Don't require password for members of "wheel" to use sudo
   security.sudo.wheelNeedsPassword = false;
@@ -196,8 +205,7 @@
     eza
     fd
     file
-    fira-code-nerdfont
-    #firefox
+    # fira-code-nerdfont
     fzf
     git
     gnumake
@@ -206,9 +214,8 @@
     home-manager
     jq
     kitty
-    #krusader
     lf
-    liberation_ttf
+    # liberation_ttf
     libgcc
     libinput-gestures
     neofetch
