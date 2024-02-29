@@ -196,6 +196,7 @@
     baobab
     btop
     calibre
+    ciscoPacketTracer8
     coreutils-full
     dbus
     distrobox
