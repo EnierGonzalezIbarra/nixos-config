@@ -29,7 +29,7 @@
       redirectCondition = true;
       type = "http-connect";
     }
-    ]
+    ];
   };
 
 
