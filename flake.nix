@@ -32,6 +32,11 @@
         # > Our main nixos configuration file <
         modules = [./nixos/configuration.nix];
       };
+      proxiedNixos = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        # > Use redsocks to implement a proxy <
+        modules = [./nixos/proxy.nix];
+      };
     };
 
     # Standalone home-manager configuration entrypoint

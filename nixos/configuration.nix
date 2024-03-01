@@ -196,7 +196,7 @@
     baobab
     btop
     calibre
-    ciscoPacketTracer8
+    # ciscoPacketTracer8
     coreutils-full
     dbus
     distrobox
@@ -206,7 +206,6 @@
     eza
     fd
     file
-    # fira-code-nerdfont
     fzf
     git
     gnumake
@@ -216,7 +215,6 @@
     jq
     kitty
     lf
-    # liberation_ttf
     libgcc
     libinput-gestures
     neofetch
