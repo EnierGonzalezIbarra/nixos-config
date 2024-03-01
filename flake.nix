@@ -35,7 +35,10 @@
       proxiedNixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         # > Use redsocks to implement a proxy <
-        modules = [./nixos/proxy.nix];
+        modules = [
+          ./nixos/proxy.nix
+          ./nixos/configuration.nix
+          ];
       };
     };
 
