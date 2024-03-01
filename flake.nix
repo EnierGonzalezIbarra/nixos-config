@@ -37,7 +37,7 @@
         # > Use redsocks to implement a proxy <
         modules = [
           ./nixos/proxy.nix
-          # ./nixos/configuration.nix
+          ./nixos/configuration.nix
           ];
       };
     };
