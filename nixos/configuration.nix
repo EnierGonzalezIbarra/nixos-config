@@ -70,6 +70,7 @@
   # Use the latest available kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "ntfs" "btrfs" "exfat" ];
+  services.fwupd.enable = true;
 
   # Make NixOS manage power and use upower deamon
   powerManagement.enable = true;
