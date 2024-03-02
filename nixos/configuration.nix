@@ -221,6 +221,7 @@
     nodejs_21
     obsidian
     poppler
+    pv
     redsocks
     ripgrep
     rustup
