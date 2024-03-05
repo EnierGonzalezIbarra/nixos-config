@@ -79,8 +79,8 @@
   networking.hostName = "nixos"; # Define your hostname.
 
   # Configure network proxy if necessary
-  # networking.proxy.default = "http://192.168.49.1:8000/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.proxy.default = "http://10.8.6.50:3128/";
+  networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain,*cujae.edu.cu";
   # networking.nftables.enable = true;
 
   # Enable networking
