@@ -208,6 +208,7 @@
     fd
     file
     fzf
+    gh
     git
     gnumake
     gnutar
