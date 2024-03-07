@@ -222,6 +222,7 @@
     neofetch
     nodejs_21
     obsidian
+    onlyoffice-bin
     poppler
     pv
     redsocks
