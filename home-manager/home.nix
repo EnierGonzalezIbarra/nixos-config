@@ -72,6 +72,7 @@
     # interactiveShellInit = "source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh";
     syntaxHighlighting.enable = true;
     shellAliases = {
+      off = "systemctl poweroff";
 
       conf = "cd ~/NixOS/ && nvim && cd -";
       update = "sudo nixos-rebuild switch --flake ~/NixOS/ -v";
@@ -115,6 +116,7 @@
         ZVM_VI_ESCAPE_BINDKEY=kj
       '';
   };
+  
   programs.starship.enable = true;
 
   # Nicely reload system units when changing configs
