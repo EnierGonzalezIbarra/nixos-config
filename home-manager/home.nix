@@ -73,6 +73,8 @@
     syntaxHighlighting.enable = true;
     shellAliases = {
       off = "systemctl poweroff";
+      p = "ping google.com";
+      pc = "ping cujae.edu.cu";
 
       conf = "cd ~/NixOS/ && nvim && cd -";
       update = "sudo nixos-rebuild switch --flake ~/NixOS/ -v";
