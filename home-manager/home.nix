@@ -13,7 +13,7 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
+    ./mpd.nix
   ];
 
   nixpkgs = {
@@ -41,10 +41,10 @@
     };
   };
 
-  # home = {
-  #   username = "enier";
-  #   homeDirectory = "/home/enier/";
-  # };
+  home = {
+    username = "enier";
+    homeDirectory = "/home/enier/";
+  };
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
@@ -64,12 +64,9 @@
   programs.zsh = {
     # My zsh config
     enable = true;
+    autocd = true;
+    enableAutosuggestions = true;
     enableCompletion = true;
-    # autosuggestions = {
-    #   enable = true;
-    #   strategy = [ "history" "completion"];
-    # };
-    # interactiveShellInit = "source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh";
     syntaxHighlighting.enable = true;
     shellAliases = {
       off = "systemctl poweroff";
