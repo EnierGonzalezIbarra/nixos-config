@@ -1,10 +1,10 @@
-{ pkgs, username, lib, ... }:
+{ pkgs, lib, ... }:
 {
   services = {
     mpdris2.enable = true;
     mpd = {
       enable = true;
-      musicDirectory = "/home/${username}/music";
+      musicDirectory = "/home/enier/Music";
       network.startWhenNeeded = true;  
       extraConfig = ''
         audio_output {
@@ -20,7 +20,7 @@
     ffmpeg
     mpc-cli
     (pkgs.writeScriptBin "songinfo" ''
-      music_dir="$HOME/music"
+      music_dir="$HOME/Music"
       previewdir="$XDG_CONFIG_HOME/ncmpcpp/previews"
       mkdir -p "$previewdir"
       filename="$(mpc --format "$music_dir"/%file% current)"

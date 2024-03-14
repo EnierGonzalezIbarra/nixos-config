@@ -218,6 +218,7 @@
     home-manager
     jq
     kitty
+    lazygit
     lf
     libgcc
     libinput-gestures
