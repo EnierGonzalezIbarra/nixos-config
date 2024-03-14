@@ -174,7 +174,8 @@
     liberation_ttf
     fira-code
     fira-code-symbols
-    (nerdfonts.override { fonts = [ "FiraCode" "Hasklig" ]; })
+    roboto
+    (nerdfonts.override { fonts = [ "FiraCode" "Hasklig" "RobotoMono"]; })
   ];
   
   # Don't require password for members of "wheel" to use sudo
