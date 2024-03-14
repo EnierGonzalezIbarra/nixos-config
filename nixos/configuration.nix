@@ -222,6 +222,7 @@
     lf
     libgcc
     libinput-gestures
+    mtpfs
     neofetch
     nodejs_21
     obsidian
