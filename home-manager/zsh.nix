@@ -22,10 +22,10 @@
       full-cleanup = "sudo nix-collect-garbage -d && sudo nix-store --optimise";
 
       bat = "cat";
-      ls = "eza --icons --group-directories-first";
-      ll = "eza --icons --group-directories-first -l --git ";
-      la = "eza --icons --group-directories-first -la --git ";
-      l = "eza --icons --group-directories-first -lha --git ";
+      # ls = "eza --icons --group-directories-first";
+      # ll = "eza --icons --group-directories-first -l --git ";
+      # la = "eza --icons --group-directories-first -la --git ";
+      # l = "eza --icons --group-directories-first -lha --git ";
       grep = "grep --color=auto";
       ":q" = "exit";
 
@@ -55,11 +55,11 @@
         source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
         ZVM_VI_ESCAPE_BINDKEY=kj
 
-        if ! command -v eza &> /dev/null; then
-          alias 'ls' = '/usr/sbin/ls';
-          alias 'll' = '/usr/sbin/ls -l';
-          alias 'la' = '/usr/sbin/ls -la';
-          alias 'l' = '/usr/sbin/ls -lhs';
+        if command -v eza &> /dev/null; then
+          alias ls = "eza --icons --group-directories-first";
+          alias ll = "eza --icons --group-directories-first -l --git ";
+          alias la = "eza --icons --group-directories-first -la --git ";
+          alias l = "eza --icons --group-directories-first -lha --git ";
         fi
       '';
   };
