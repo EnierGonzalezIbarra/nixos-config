@@ -56,10 +56,10 @@
         ZVM_VI_ESCAPE_BINDKEY=kj
 
         if command -v eza &> /dev/null; then
-          alias ls = "eza --icons --group-directories-first"
-          alias ll = "eza --icons --group-directories-first -l --git "
-          alias la = "eza --icons --group-directories-first -la --git "
-          alias l = "eza --icons --group-directories-first -lha --git "
+          alias -- 'ls'='eza --icons --group-directories-first'
+          alias -- 'll'='eza --icons --group-directories-first -l --git'
+          alias -- 'la'='eza --icons --group-directories-first -la --git'
+          alias -- 'l'='eza --icons --group-directories-first -lha --git'
         fi
       '';
   };
