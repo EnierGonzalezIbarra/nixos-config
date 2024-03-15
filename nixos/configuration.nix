@@ -110,7 +110,7 @@
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   
-  #services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
 
   programs.hyprland = {
     enable = true;
@@ -189,7 +189,6 @@
     bottles
     dolphin
     floorp
-    figlet
     gimp
     libsForQt5.kalk
     pandoc
@@ -232,8 +231,6 @@
     pv
     redsocks
     ripgrep
-    rustup
-    speedtest-cli
     spice
     spice-gtk
     spice-protocol
@@ -254,9 +251,6 @@
     win-spice
     wl-clipboard
     wofi
-    xfce.thunar
-    xfce.thunar-volman
-    xfce.thunar-archive-plugin
     yazi
     zoxide
     zsh-autosuggestions
