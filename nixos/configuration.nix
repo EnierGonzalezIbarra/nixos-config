@@ -216,6 +216,7 @@
     gnutar
     gparted
     home-manager
+    jmtpfs
     jq
     kitty
     lazygit
