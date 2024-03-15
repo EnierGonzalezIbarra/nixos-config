@@ -56,10 +56,10 @@
         ZVM_VI_ESCAPE_BINDKEY=kj
 
         if ! command -v eza &> /dev/null; then
-          ls = "/usr/sbin/ls";
-          ll = "/usr/sbin/ls -l";
-          la = "/usr/sbin/ls -la";
-          l = "/usr/sbin/ls -lhs";
+          alias 'ls' = '/usr/sbin/ls';
+          alias 'll' = '/usr/sbin/ls -l';
+          alias 'la' = '/usr/sbin/ls -la';
+          alias 'l' = '/usr/sbin/ls -lhs';
         fi
       '';
   };
