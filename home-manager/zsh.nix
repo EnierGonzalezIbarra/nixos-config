@@ -29,6 +29,8 @@
       grep = "grep --color=auto";
       ":q" = "exit";
 
+      y = "yazi";
+
       v = "nvim";
       sv = "distrobox-enter --root -n Arch -- sudo -e ./";
       vconf = "cd ~/.config/nvim/lua/custom && nvim && cd -";
