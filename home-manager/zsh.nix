@@ -60,6 +60,11 @@
           alias -- 'll'='eza --icons --group-directories-first -l --git'
           alias -- 'la'='eza --icons --group-directories-first -la --git'
           alias -- 'l'='eza --icons --group-directories-first -lha --git'
+        else 
+          alias -- 'ls'='ls --color=auto'
+          alias -- 'll'='ls -l --color=auto'
+          alias -- 'la'='ls -la --color=auto'
+          alias -- 'l'='ls -lha --color=auto'
         fi
       '';
   };
