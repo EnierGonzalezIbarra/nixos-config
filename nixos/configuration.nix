@@ -187,7 +187,6 @@
     atuin
     bat
     bottles
-    dolphin
     floorp
     gimp
     libsForQt5.kalk
@@ -215,7 +214,6 @@
     gnutar
     gparted
     home-manager
-    jmtpfs
     jq
     kitty
     lazygit
