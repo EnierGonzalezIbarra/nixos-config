@@ -245,10 +245,10 @@
     unzip
     vim
     vlc
-    virtio-win
+    # virtio-win
     virt-viewer
     wget
-    win-spice
+    # win-spice
     wl-clipboard
     wofi
     yazi
