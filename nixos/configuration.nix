@@ -192,6 +192,7 @@
     libsForQt5.kalk
     libsForQt5.dolphin
     libsForQt5.dolphin-plugins
+    libsForQt5.polkit-kde-agent
     pandoc
     proxychains-ng
     thunderbird
@@ -227,6 +228,7 @@
     nodejs_21
     obsidian
     onlyoffice-bin
+    polkit
     poppler
     pv
     redsocks
