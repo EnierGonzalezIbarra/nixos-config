@@ -120,7 +120,7 @@
   # Configure keymaps
   services.xserver.xkb = {
     layout = "us";
-    variant = "";
+    variant = "alt-intl";
     options = "shift:both_capslock";
   };
   #services.xserver.xkb.extraLayouts.us-custom = {
@@ -231,6 +231,7 @@
     polkit
     poppler
     pv
+    rar
     redsocks
     ripgrep
     spice
@@ -254,6 +255,7 @@
     wl-clipboard
     wofi
     yazi
+    zip
     zoxide
     zsh-autosuggestions
     zsh-nix-shell
