@@ -119,8 +119,8 @@
 
   # Configure keymaps
   services.xserver.xkb = {
-    layout = "us";
-    variant = "alt-intl";
+    layout = "us(altgr-intl)";
+    variant = "";
     options = "shift:both_capslock";
   };
   #services.xserver.xkb.extraLayouts.us-custom = {
