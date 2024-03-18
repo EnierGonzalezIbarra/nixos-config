@@ -219,6 +219,7 @@
     home-manager
     jq
     kitty
+    krusader
     lazygit
     lf
     libgcc
