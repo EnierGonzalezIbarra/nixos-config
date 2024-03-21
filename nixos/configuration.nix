@@ -119,15 +119,15 @@
 
   # Configure keymaps
   services.xserver.xkb = {
-    layout = "us(altgr-intl)";
+    layout = "us-custom";
     variant = "";
     options = "shift:both_capslock";
   };
-  #services.xserver.xkb.extraLayouts.us-custom = {
-   # description = "US layout custom symbols";
-    #languages   = [ "eng" ];
-    #symbolsFile = /home/enier/xkb_custom_layout/symbols/us-custom;
-  #};
+  services.xserver.xkb.extraLayouts.us-custom = {
+   description = "US layout custom symbols";
+    languages   = [ "eng" ];
+    symbolsFile = /home/enier/xkb_custom_layout/symbols/us-custom;
+  };
   console.useXkbConfig = true;
 
   # Enable CUPS to print documents.
