@@ -238,6 +238,7 @@
     spice
     spice-gtk
     spice-protocol
+    telegram-desktop
     tldr
     tmux
     tor
