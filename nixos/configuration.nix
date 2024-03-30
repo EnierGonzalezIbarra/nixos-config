@@ -338,7 +338,6 @@
   virtualisation = {
     docker.enable = true;
     spiceUSBRedirection.enable = true;
-    allowedBridges = ["wlo1"];
     libvirtd = {
       enable = true;
       qemu = {
