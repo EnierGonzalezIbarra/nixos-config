@@ -6,6 +6,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
 
+    # Sugar candy for nix
+    sddm-sugar-candy-nix.url = "github:MacKenzie779/sddm-sugar-candy-nix.git";
     # Home manager
     home-manager.url = "github:nix-community/home-manager/";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";

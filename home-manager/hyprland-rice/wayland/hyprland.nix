@@ -27,7 +27,7 @@ pkgs,
     # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     enableNvidiaPatches = false;
     settings = {
-      "$mainMod" = "ALT";
+      "$mainMod" = "SUPER";
       monitor = [
         ",preferred,auto,auto"
         # "eDP-1,1920x1080@60,0x0,1"

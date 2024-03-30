@@ -110,7 +110,11 @@
   services.gnome.gnome-keyring.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    theme = "sddm-sugar-candy-nix";
+    sugarCandyNix.enable = true;
+  };
   
   xdg.portal = {
     enable = true;
