@@ -109,7 +109,7 @@ pkgs,
         # Launch
         "$mainMod, Q, exec, kitty"
         "$mainMod, D, exec, wofi --show drun"
-        "$mainMod, E, thunar"
+        "$mainMod, E, exec, thunar"
         # ''$mainMod,P,exec,mkdir -p ~/photos/screenshots; grim -t png -g "$(slurp)" ~/photos/screenshots/$(date +%Y-%m-%d_%H-%m-%s).png''
         # "$mainMod SHIFT,N,exec, swaync-client -t -sw"
         # "$mainMod SHIFT,M,exec, swaylock -f -i ~/photos/wallpapers/wallpaper.png"
