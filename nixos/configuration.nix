@@ -338,6 +338,7 @@
     # General zsh config
     enable = true;
     enableCompletion = true;
+    setOptions = ["PROMPT_SUBST" "appendhistory"];
     autosuggestions = {
       enable = true;
       strategy = [ "history" "completion"];
