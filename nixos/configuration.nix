@@ -122,6 +122,10 @@
     enable = true;
     xwayland.enable = true;
   };
+  programs = {
+    dconf.enable = true;
+    direnv.enable = true;
+  };
 
   # Configure keymaps
   services.xserver.xkb = {

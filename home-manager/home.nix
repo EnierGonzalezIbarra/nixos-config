@@ -55,8 +55,6 @@
   programs.git.enable = true;
 
   programs = {
-    dconf.enable = true;
-    direnv.enable = true;
     thunar = {
       enable = true;
       plugins = with pkgs.xfce; [ 
