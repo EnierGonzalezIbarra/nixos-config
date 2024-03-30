@@ -54,15 +54,6 @@
   programs.mpv.enable = true;
   programs.git.enable = true;
 
-  programs = {
-    thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [ 
-        xfconf
-        thunar-volman 
-      ];
-    };
-  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

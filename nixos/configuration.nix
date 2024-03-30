@@ -279,6 +279,16 @@
     zsh-syntax-highlighting
   ];
 
+  programs = {
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [ 
+        xfconf
+        thunar-volman 
+      ];
+    };
+  };
+
   services = {
     smartd = {
       enable = true;
