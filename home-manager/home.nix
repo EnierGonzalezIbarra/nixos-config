@@ -54,6 +54,7 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
+  programs.mpv.enable = true;
   programs.git.enable = true;
 
   # Enable zsh and use it as default shell
