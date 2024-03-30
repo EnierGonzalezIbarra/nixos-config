@@ -1,5 +1,4 @@
 # This is your home-manager configuration file
-# Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
   inputs,
   lib,
@@ -15,6 +14,7 @@
     # You can also split up your configuration and import pieces of it here:
     ./mpd.nix
     ./zsh.nix
+    ./hyprland-rice
   ];
 
   nixpkgs = {
@@ -36,9 +36,6 @@
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       allowUnfreePredicate = _: true;
-      # permittedInsecurePackages = [
-      #   "electron-25.9.0"
-      #   ];
     };
   };
 
@@ -57,7 +54,17 @@
   programs.mpv.enable = true;
   programs.git.enable = true;
 
-  # Enable zsh and use it as default shell
+  programs = {
+    dconf.enable = true;
+    direnv.enable = true;
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [ 
+        xfconf
+        thunar-volman 
+      ];
+    };
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

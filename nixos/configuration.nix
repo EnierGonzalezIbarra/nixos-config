@@ -70,7 +70,6 @@
   # Use the latest available kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "ntfs" "btrfs" "exfat" ];
-  services.fwupd.enable = true;
 
   # Make NixOS manage power and use upower deamon
   powerManagement.enable = true;
@@ -107,9 +106,16 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true; 
 
+  services.gvfs.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   
+  xdg.portal = {
+    enable = true;
+  };
+
   # services.xserver.desktopManager.plasma6.enable = true;
 
   programs.hyprland = {
@@ -139,9 +145,11 @@
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
+    audio.enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
     # use the example session manager (no others are packaged yet so this is enabled by default,
@@ -213,7 +221,7 @@
     file
     fzf
     gh
-    git
+    git-crypt
     gnumake
     gnutar
     gparted
@@ -225,6 +233,7 @@
     lf
     libgcc
     libinput-gestures
+    libnotify
     mtpfs
     neofetch
     nodejs_21
@@ -232,6 +241,7 @@
     onlyoffice-bin
     polkit
     poppler
+    pulseaudio
     pv
     rar
     redsocks
@@ -264,6 +274,13 @@
     zsh-nix-shell
     zsh-syntax-highlighting
   ];
+
+  services = {
+    smartd = {
+      enable = true;
+      autodetect = true;
+    };
+  };
 
   home-manager = {
     extraSpecialArgs = {inherit inputs; };
@@ -321,6 +338,7 @@
   virtualisation = {
     docker.enable = true;
     spiceUSBRedirection.enable = true;
+    allowedBridges = ["wlo1"];
     libvirtd = {
       enable = true;
       qemu = {

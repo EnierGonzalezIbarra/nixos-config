@@ -7,6 +7,7 @@
     enableAutosuggestions = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
+    setOptions = ["PROMPT_SUBST" "appendhistory"];
     shellAliases = {
       off = "systemctl poweroff";
       p = "ping google.com";
