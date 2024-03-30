@@ -289,12 +289,12 @@
     };
   };
 
-  services = {
-    smartd = {
-      enable = true;
-      autodetect = true;
-    };
-  };
+  # services = {
+  #   smartd = {
+  #     enable = true;
+  #     autodetect = true;
+  #   };
+  # };
 
   home-manager = {
     extraSpecialArgs = {inherit inputs; };
