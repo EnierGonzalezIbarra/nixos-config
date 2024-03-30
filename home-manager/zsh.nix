@@ -4,7 +4,7 @@
     # My zsh config
     enable = true;
     autocd = true;
-    enableAutosuggestions = true;
+    autosuggestions.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
