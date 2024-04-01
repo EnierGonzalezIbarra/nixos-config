@@ -13,6 +13,7 @@
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
 
+    inputs.sddm-sugar-candy-nix.nixosModules.default
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
 
@@ -112,7 +113,6 @@
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm = {
     enable = true;
-    theme = "sddm-sugar-candy-nix";
     sugarCandyNix.enable = true;
   };
   
@@ -126,6 +126,7 @@
     enable = true;
     xwayland.enable = true;
   };
+
   programs = {
     dconf.enable = true;
     direnv.enable = true;
@@ -201,15 +202,11 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     audacity
-    atuin
     bat
     bottles
     floorp
     gimp
     libsForQt5.kalk
-    libsForQt5.dolphin
-    libsForQt5.dolphin-plugins
-    libsForQt5.polkit-kde-agent
     pandoc
     proxychains-ng
     thunderbird
@@ -217,7 +214,6 @@
     baobab
     btop
     calibre
-    # ciscoPacketTracer8
     coreutils-full
     dbus
     distrobox
@@ -236,23 +232,20 @@
     home-manager
     jq
     kitty
-    krusader
     lazygit
     lf
     libgcc
     libinput-gestures
     libnotify
-    mtpfs
+    # mtpfs
     neofetch
     nodejs_21
     obsidian
     onlyoffice-bin
-    polkit
     poppler
     pulseaudio
     pv
     rar
-    redsocks
     ripgrep
     spice
     spice-gtk
@@ -272,15 +265,13 @@
     # virtio-win
     virt-viewer
     wget
+    whatsapp-for-linux
     # win-spice
     wl-clipboard
     wofi
     yazi
     zip
     zoxide
-    zsh-autosuggestions
-    zsh-nix-shell
-    zsh-syntax-highlighting
   ];
 
   programs = {
@@ -292,13 +283,6 @@
       ];
     };
   };
-
-  # services = {
-  #   smartd = {
-  #     enable = true;
-  #     autodetect = true;
-  #   };
-  # };
 
   home-manager = {
     extraSpecialArgs = {inherit inputs; };

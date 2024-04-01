@@ -36,7 +36,7 @@ pkgs,
         "waybar"
         # "swaybg -i ~/photos/wallpapers/wallpaper.png"
         # ''swayidle -w timeout 1800 'swaylock -f -i ~/photos/wallpapers/wallpaper.png' timeout 1805 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "swaylock -f -i ~/photos/wallpapers/wallpaper.png"''
-        # "hyprctl setcursor ${custom.cursor} ${custom.fontsize}"
+        "hyprctl setcursor ${custom.cursor} ${custom.fontsize}"
         # "swaync"
       ];
       input = {
@@ -108,7 +108,7 @@ pkgs,
         "$mainMod SHIFT, X, exit"
         # Launch
         "$mainMod, Q, exec, kitty"
-        "$mainMod, D, exec, wofi --show drun"
+        "ALT, SPACE, exec, wofi --show drun"
         "$mainMod, E, exec, thunar"
         # ''$mainMod,P,exec,mkdir -p ~/photos/screenshots; grim -t png -g "$(slurp)" ~/photos/screenshots/$(date +%Y-%m-%d_%H-%m-%s).png''
         # "$mainMod SHIFT,N,exec, swaync-client -t -sw"

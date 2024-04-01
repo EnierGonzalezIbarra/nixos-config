@@ -36,10 +36,45 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1710272261,
+        "narHash": "sha256-g0bDwXFmTE7uGDOs9HcJsfLFhH7fOsASbAuOzDC+fhQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "0ad13a6833440b8e238947e47bea7f11071dc2b2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "sddm-sugar-candy-nix": "sddm-sugar-candy-nix"
+      }
+    },
+    "sddm-sugar-candy-nix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1710333929,
+        "narHash": "sha256-Ld9QafzmuuWi8iH8iF04xURmRstlyX89JjCMNIzTyO4=",
+        "owner": "MacKenzie779",
+        "repo": "sddm-sugar-candy-nix",
+        "rev": "236af15280d2a12299edfa0892d77b5979357934",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MacKenzie779",
+        "repo": "sddm-sugar-candy-nix",
+        "type": "github"
       }
     }
   },
