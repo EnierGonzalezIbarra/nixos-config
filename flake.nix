@@ -12,6 +12,10 @@
     home-manager.url = "github:nix-community/home-manager/";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     
+    matugen.url = "github:InioX/matugen";
+    ags.url = "github:Aylur/ags";
+    astal.url = "github:Aylur/astal";
+    stm.url = "github:Aylur/stm";
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
     # nix-colors.url = "github:misterio77/nix-colors";

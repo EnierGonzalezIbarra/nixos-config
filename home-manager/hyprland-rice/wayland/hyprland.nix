@@ -33,7 +33,7 @@ pkgs,
         # "eDP-1,1920x1080@60,0x0,1"
       ];
       exec-once = [
-        "waybar"
+        # "waybar"
         # "swaybg -i ~/photos/wallpapers/wallpaper.png"
         # ''swayidle -w timeout 1800 'swaylock -f -i ~/photos/wallpapers/wallpaper.png' timeout 1805 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "swaylock -f -i ~/photos/wallpapers/wallpaper.png"''
         "hyprctl setcursor ${custom.cursor} ${custom.fontsize}"
