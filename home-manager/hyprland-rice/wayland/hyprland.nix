@@ -116,7 +116,7 @@ pkgs,
         # Window Options
         "$mainMod, V, pseudo"
         "$mainMod, W, togglesplit"
-        "$mainMod, S, fullscreen"
+        "$mainMod, Z, fullscreen"
         "$mainMod, F, togglefloating "
         "$mainMod, C, killactive"
         # Focus Windows
@@ -140,6 +140,7 @@ pkgs,
         "$mainMod, 8, workspace, 8"
         "$mainMod, 9, workspace, 9"
         "$mainMod, 0, workspace, 10"
+
         # Switch active window to workspace
         "$mainMod SHIFT, 1, movetoworkspace, 1"
         "$mainMod SHIFT, 2, movetoworkspace, 2"
@@ -197,7 +198,6 @@ pkgs,
         "float,title:^(Confirm to replace files)$"
         "float,title:^(File Operation Progress)$"
         "float,title:^(mpv)$"
-        # Ensure tearing for specific games
       ];
       layerrule = [
         "blur, waybar"

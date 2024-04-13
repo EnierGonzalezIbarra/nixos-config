@@ -15,6 +15,9 @@
     ./mpd.nix
     ./zsh.nix
     ./hyprland-rice
+    ./git.nix
+    ./tmux.nix
+    ./neofetch.nix
   ];
 
   nixpkgs = {
@@ -54,6 +57,23 @@
   programs.mpv.enable = true;
   programs.git.enable = true;
 
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    tmux = {
+      enableShellIntegration = true;
+    };
+  };
+
+  programs.ripgrep.enable = true;
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+    options = [
+      "--cmd cd"
+    ];
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

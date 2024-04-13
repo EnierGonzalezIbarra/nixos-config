@@ -7,15 +7,9 @@
   pkgs,
   ...
 }: {
-  # You can import other NixOS modules here
   imports = [
-    # If you want to use modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
-
+    # Use modules from other flakes (such as nixos-hardware):
     inputs.sddm-sugar-candy-nix.nixosModules.default
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -37,10 +31,15 @@
       #   });
       # })
     ];
+
     # Configure your nixpkgs instance
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
+      permittedInsecurePackages = [
+        "electron-19.1.9"
+        "electron-25.9.0"
+      ];
     };
   };
 
@@ -107,10 +106,6 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true; 
 
-  services.gvfs.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm = {
     enable = true;
     sugarCandyNix.enable = true;
@@ -118,9 +113,12 @@
   
   xdg.portal = {
     enable = true;
+    configPackages = [ pkgs.xdg-desktop-portal-hyprland ]; 
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal-gtk ];
   };
 
-  # services.xserver.desktopManager.plasma6.enable = true;
+  services.gvfs.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   programs.hyprland = {
     enable = true;
@@ -138,6 +136,7 @@
     variant = "";
     options = "shift:both_capslock";
   };
+
   services.xserver.xkb.extraLayouts.us-custom = {
    description = "US layout custom symbols";
     languages   = [ "eng" ];
@@ -159,11 +158,28 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     wireplumber.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
+  };
+
+  # Enable polkit
+  security.polkit.enable = true;
+  systemd = {
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
   };
 
   # Enable bluetooth and power up controller on boot
@@ -223,7 +239,6 @@
     eza
     fd
     file
-    fzf
     gh
     git-crypt
     gnumake
@@ -246,7 +261,6 @@
     pulseaudio
     pv
     rar
-    ripgrep
     spice
     spice-gtk
     spice-protocol
@@ -260,6 +274,7 @@
     unar
     unrar
     unzip
+    usbutils
     vim
     vlc
     # virtio-win
@@ -271,7 +286,6 @@
     wofi
     yazi
     zip
-    zoxide
   ];
 
   programs = {
@@ -283,6 +297,8 @@
       ];
     };
   };
+
+
 
   home-manager = {
     extraSpecialArgs = {inherit inputs; };
@@ -305,15 +321,13 @@
     };
     variables = {
       EDITOR = "nvim";
+      XCURSOR_THEME = "Numix-Cursor";
+      XCURSOR_SIZE = "12";
     };
+    localBinInPath = true;
   };
-  environment.localBinInPath = true;
   programs.nix-ld.enable = true;
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-19.1.9"
-    "electron-25.9.0"
-  ];
 
   # Enable flatpak
   services.flatpak.enable = true;
@@ -321,7 +335,6 @@
   # Enable autocpufreq for better battery life
   services.auto-cpufreq.enable = true;
 
-  # Enable zsh and use it as default shell
   programs.zsh = {
     # General zsh config
     enable = true;
