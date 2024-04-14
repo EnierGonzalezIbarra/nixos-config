@@ -16,6 +16,7 @@ in
       credential.helper = "store";
       github.user = name;
       push.autoSetupRemote = true;
+      pull.rebase = false;
       init.defaultBranch = "main";
     };
     userEmail = email;

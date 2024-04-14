@@ -30,11 +30,15 @@
   let
     inherit (self) outputs;
   in {
+    packages.x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.callPackage ./home-manager/ags {inherit inputs;};
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {
+          inherit inputs outputs;
+          # asztal = self.packages.x86_64-linux.default;
+        };
         # > Our main nixos configuration file <
         modules = [./nixos/configuration.nix];
       };
@@ -53,8 +57,10 @@
      homeConfigurations = {
        "enier@nixos" = home-manager.lib.homeManagerConfiguration {
          pkgs = nixpkgs.legacyPackages.x86_64-linux;  #Home-manager requires 'pkgs' instance
-         extraSpecialArgs = {inherit inputs outputs;};
-    
+         extraSpecialArgs = {
+           inherit inputs outputs;
+           # asztal = self.packages.x86_64-linux.default;
+         };
           # > Our main home-manager configuration file <
          modules = [./home-manager/home.nix];
        };
