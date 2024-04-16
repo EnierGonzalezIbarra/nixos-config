@@ -224,7 +224,6 @@
     gimp
     libsForQt5.kalk
     pandoc
-    proxychains-ng
     thunderbird
     zotero
     baobab
@@ -298,6 +297,10 @@
     };
   };
 
+  programs.proxychains = {
+    enable = true;
+    package = pkgs.proxychains-ng;
+  };
 
 
   home-manager = {
