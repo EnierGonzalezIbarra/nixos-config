@@ -5,8 +5,10 @@
   lib,
   config,
   pkgs,
+  outputs,
   ...
-}: {
+}: 
+with outputs; {
   imports = [
     # Use modules from other flakes (such as nixos-hardware):
     inputs.sddm-sugar-candy-nix.nixosModules.default
@@ -192,7 +194,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.enier = {
     isNormalUser = true;
-    description = "Enier Gonzalez Ibarra";
+    description = "${name}";
     extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "input" "libvirtd" "socksified" ];
     initialPassword = "theLinuxMan";
     packages = with pkgs; [
@@ -287,19 +289,34 @@
     zip
   ];
 
-  programs = {
-    thunar = {
+  programs.thunar = {
       enable = true;
       plugins = with pkgs.xfce; [ 
         xfconf
         thunar-volman 
       ];
     };
-  };
 
   programs.proxychains = {
     enable = true;
     package = pkgs.proxychains-ng;
+    proxies = {
+      default = {
+        enable = true;
+        type = "socks4";
+        host = "127.0.0.1";
+        port = 9050;
+      };
+    };
+  };
+  
+  programs.npm = {
+    enable = true;
+    npmrc = 
+      ''
+      timeout=10000000
+      https-proxy=127.0.0.1:9050
+      '';
   };
 
 

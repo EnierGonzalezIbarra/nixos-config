@@ -18,6 +18,8 @@ in
       push.autoSetupRemote = true;
       pull.rebase = false;
       init.defaultBranch = "main";
+      http.lowSpeedLimit = 1000;
+      http.lowSpeedTime = 1200;
     };
     userEmail = email;
     userName = name;

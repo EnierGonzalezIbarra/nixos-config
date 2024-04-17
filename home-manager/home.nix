@@ -12,7 +12,7 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    ./ags.nix
+    # ./ags.nix
     ./mpd.nix
     ./zsh.nix
     ./hyprland-rice

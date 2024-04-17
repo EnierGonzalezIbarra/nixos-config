@@ -30,6 +30,8 @@
   let
     inherit (self) outputs;
   in {
+    name = "Enier Gonzalez Ibarra";
+    username = "enier";
     packages.x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.callPackage ./home-manager/ags {inherit inputs;};
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
