@@ -22,10 +22,6 @@
       full-cleanup = "sudo nix-collect-garbage -d && sudo nix-store --optimise";
 
       bat = "cat";
-      # ls = "eza --icons --group-directories-first";
-      # ll = "eza --icons --group-directories-first -l --git ";
-      # la = "eza --icons --group-directories-first -la --git ";
-      # l = "eza --icons --group-directories-first -lha --git ";
       grep = "grep --color=auto";
       ":q" = "exit";
 
