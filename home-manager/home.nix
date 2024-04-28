@@ -14,7 +14,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./ags.nix
     ./mpd.nix
-    ./zsh.nix
+    ./shell.nix
     ./hyprland-rice
     ./git.nix
     ./tmux.nix

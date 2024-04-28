@@ -127,10 +127,10 @@ with outputs; {
     xwayland.enable = true;
   };
 
-  programs = {
-    dconf.enable = true;
-    direnv.enable = true;
-  };
+  # programs = {
+  #   dconf.enable = true;
+  #   direnv.enable = true;
+  # };
 
   # Configure keymaps
   services.xserver.xkb = {
@@ -309,7 +309,16 @@ with outputs; {
       };
     };
   };
-  
+
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    # clean.extraArgs = "--keep-since 7d --keep 5";
+    flake = "/home/enier/dotfiles/nix";
+    package = inputs.nh.packages.x86_64-linux.default;
+  };
+
+
   programs.npm = {
     enable = true;
     npmrc = 
@@ -346,7 +355,7 @@ with outputs; {
     };
     localBinInPath = true;
   };
-  programs.nix-ld.enable = true;
+  # programs.nix-ld.enable = true;
 
 
   # Enable flatpak

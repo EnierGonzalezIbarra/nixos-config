@@ -25,7 +25,6 @@ pkgs,
   wayland.windowManager.hyprland = {
     enable = true;
     # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    enableNvidiaPatches = false;
     settings = {
       "$mainMod" = "SUPER";
       monitor = [
