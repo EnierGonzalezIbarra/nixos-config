@@ -1,13 +1,12 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  outputs,
-  ...
-}: 
+{ inputs
+, lib
+, config
+, pkgs
+, outputs
+, ...
+}:
 with outputs; {
   imports = [
     # Use modules from other flakes (such as nixos-hardware):
@@ -47,18 +46,18 @@ with outputs; {
 
   # This will add each flake input as a registry
   # To make nix3 commands consistent with your flake
-  nix.registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
+  nix.registry = (lib.mapAttrs (_: flake: { inherit flake; })) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
 
   # This will additionally add your inputs to the system's legacy channels
   # Making legacy nix commands consistent as well, awesome!
-  nix.nixPath = ["/etc/nix/path"];
+  nix.nixPath = [ "/etc/nix/path" ];
   environment.etc =
     lib.mapAttrs'
-    (name: value: {
-      name = "nix/path/${name}";
-      value.source = value.flake;
-    })
-    config.nix.registry;
+      (name: value: {
+        name = "nix/path/${name}";
+        value.source = value.flake;
+      })
+      config.nix.registry;
 
   nix.settings = {
     # Enable flakes and new 'nix' command
@@ -106,16 +105,16 @@ with outputs; {
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true; 
+  services.xserver.enable = true;
 
   services.xserver.displayManager.sddm = {
     enable = true;
     sugarCandyNix.enable = true;
   };
-  
+
   xdg.portal = {
     enable = true;
-    configPackages = [ pkgs.xdg-desktop-portal-hyprland ]; 
+    configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
     extraPortals = [ pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal-gtk ];
   };
 
@@ -140,8 +139,8 @@ with outputs; {
   };
 
   services.xserver.xkb.extraLayouts.us-custom = {
-   description = "US layout custom symbols";
-    languages   = [ "eng" ];
+    description = "US layout custom symbols";
+    languages = [ "eng" ];
     symbolsFile = /home/enier/xkb_custom_layout/symbols/us-custom;
   };
   console.useXkbConfig = true;
@@ -198,7 +197,7 @@ with outputs; {
     extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "input" "libvirtd" "socksified" ];
     initialPassword = "theLinuxMan";
     packages = with pkgs; [
-    	microsoft-edge
+      microsoft-edge
     ];
   };
   users.defaultUserShell = pkgs.zsh;
@@ -210,9 +209,9 @@ with outputs; {
     fira-code
     fira-code-symbols
     roboto
-    (nerdfonts.override { fonts = [ "FiraCode" "Hasklig" "RobotoMono"]; })
+    (nerdfonts.override { fonts = [ "FiraCode" "Hasklig" "RobotoMono" ]; })
   ];
-  
+
   # Don't require password for members of "wheel" to use sudo
   security.sudo.wheelNeedsPassword = false;
 
@@ -290,12 +289,12 @@ with outputs; {
   ];
 
   programs.thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [ 
-        xfconf
-        thunar-volman 
-      ];
-    };
+    enable = true;
+    plugins = with pkgs.xfce; [
+      xfconf
+      thunar-volman
+    ];
+  };
 
   programs.proxychains = {
     enable = true;
@@ -321,16 +320,16 @@ with outputs; {
 
   programs.npm = {
     enable = true;
-    npmrc = 
+    npmrc =
       ''
-      timeout=10000000
-      https-proxy=127.0.0.1:9050
+        timeout=10000000
+        https-proxy=127.0.0.1:9050
       '';
   };
 
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs; };
+    extraSpecialArgs = { inherit inputs; };
     users = {
       enier = import ../home-manager/home.nix;
     };
@@ -338,13 +337,13 @@ with outputs; {
 
   environment = {
     sessionVariables = rec {
-      XDG_CACHE_HOME  = "$HOME/.cache";
+      XDG_CACHE_HOME = "$HOME/.cache";
       XDG_CONFIG_HOME = "$HOME/.config";
-      XDG_DATA_HOME   = "$HOME/.local/share";
-      XDG_STATE_HOME  = "$HOME/.local/state";
+      XDG_DATA_HOME = "$HOME/.local/share";
+      XDG_STATE_HOME = "$HOME/.local/state";
       # Not officially in the specification
-      XDG_BIN_HOME    = "$HOME/.local/bin";
-      PATH = [ 
+      XDG_BIN_HOME = "$HOME/.local/bin";
+      PATH = [
         "${XDG_BIN_HOME}"
       ];
     };
@@ -368,10 +367,10 @@ with outputs; {
     # General zsh config
     enable = true;
     enableCompletion = true;
-    setOptions = ["PROMPT_SUBST" "appendhistory"];
+    setOptions = [ "PROMPT_SUBST" "appendhistory" ];
     autosuggestions = {
       enable = true;
-      strategy = [ "history" "completion"];
+      strategy = [ "history" "completion" ];
     };
     interactiveShellInit = "source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh";
     syntaxHighlighting.enable = true;
@@ -386,7 +385,7 @@ with outputs; {
     libvirtd = {
       enable = true;
       qemu = {
-	swtpm.enable = true;
+        swtpm.enable = true;
         ovmf.enable = true;
         ovmf.packages = [ pkgs.OVMFFull.fd ];
       };
