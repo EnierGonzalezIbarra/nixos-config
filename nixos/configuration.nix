@@ -250,9 +250,9 @@ with outputs; {
     lazygit
     lf
     libgcc
+    libreoffice
     libinput-gestures
     libnotify
-    # mtpfs
     neofetch
     nodejs_21
     obsidian

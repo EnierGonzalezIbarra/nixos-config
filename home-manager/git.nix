@@ -2,7 +2,7 @@
 let
   email = "79170796+EnierGonzalezIbarra@users.noreply.github.com";
   name = "Enier González Ibarra";
-in 
+in
 {
   programs.git = {
     enable = true;

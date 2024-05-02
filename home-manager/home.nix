@@ -1,10 +1,9 @@
 # This is your home-manager configuration file
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
+{ inputs
+, lib
+, config
+, pkgs
+, ...
 }: {
   # You can import other home-manager modules here
   imports = [
@@ -46,7 +45,7 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
-   ];
+  ];
 
   nixpkgs.config.permittedInsecurePackages = [
     "electron-19.1.9"
