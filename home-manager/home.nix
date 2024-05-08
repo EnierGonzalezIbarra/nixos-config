@@ -57,6 +57,8 @@
   programs.mpv.enable = true;
   programs.git.enable = true;
 
+  programs.vscode.enable = true;
+
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;

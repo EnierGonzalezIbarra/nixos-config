@@ -99,8 +99,8 @@ pkgs,
       };
       misc = {
         vrr = 1;
-        # disable_hyprland_logo  = true;
-        # disable_splash_rendering = true;
+        disable_hyprland_logo  = true;
+        disable_splash_rendering = true;
       };
       bind = [
         # Exit to tty
