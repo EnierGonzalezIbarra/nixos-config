@@ -254,7 +254,7 @@ with outputs; {
     libinput-gestures
     libnotify
     neofetch
-    nodejs_21
+    # nodejs_21
     obsidian
     onlyoffice-bin
     poppler
