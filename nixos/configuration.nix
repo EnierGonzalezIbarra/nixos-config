@@ -232,6 +232,7 @@ with outputs; {
     zotero
     baobab
     btop
+    cargo
     calibre
     coreutils-full
     dbus
@@ -260,6 +261,7 @@ with outputs; {
     python2
     python3
     rar
+    rustc
     # spice
     # spice-gtk
     # spice-protocol
