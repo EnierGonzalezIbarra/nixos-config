@@ -225,6 +225,7 @@ with outputs; {
   environment.systemPackages = with pkgs; [
     bat
     floorp
+    clang
     gimp
     libsForQt5.kalk
     pandoc
@@ -253,6 +254,7 @@ with outputs; {
     libreoffice
     libinput-gestures
     libnotify
+    llvmPackages.bintools
     neofetch
     onlyoffice-bin
     poppler
