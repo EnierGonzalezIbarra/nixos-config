@@ -303,6 +303,12 @@ with outputs; {
         host = "127.0.0.1";
         port = 9050;
       };
+      cujae = {
+        enable = true;
+        type = "https";
+        host = "10.8.6.50";
+        port = 3128;
+      };
     };
   };
 
@@ -351,7 +357,7 @@ with outputs; {
     };
     localBinInPath = true;
   };
-  # programs.nix-ld.enable = true;
+  programs.nix-ld.enable = true;
 
 
   # Enable flatpak
