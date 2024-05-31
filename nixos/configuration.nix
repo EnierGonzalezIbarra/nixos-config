@@ -257,6 +257,8 @@ with outputs; {
     poppler
     pulseaudio
     pv
+    python2
+    python3
     rar
     # spice
     # spice-gtk
