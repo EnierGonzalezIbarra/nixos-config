@@ -12,6 +12,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nh.url = "github:viperML/nh";
+
+    xremap-flake.url = "github:xremap/nix-flake";
     
     # matugen.url = "github:InioX/matugen";
     # ags.url = "github:Aylur/ags";

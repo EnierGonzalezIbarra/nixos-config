@@ -126,6 +126,8 @@ with outputs; {
     xwayland.enable = true;
   };
 
+  programs.light.enable = true;
+
   # programs = {
   #   dconf.enable = true;
   #   direnv.enable = true;
@@ -187,6 +189,9 @@ with outputs; {
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
+  # Needed for xremap
+  hardware.uinput.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
@@ -194,7 +199,7 @@ with outputs; {
   users.users.enier = {
     isNormalUser = true;
     description = "${name}";
-    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "input" "libvirtd" "socksified" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "input" "uinput" "libvirtd" "socksified" ];
     initialPassword = "theLinuxMan";
     packages = with pkgs; [
       microsoft-edge
@@ -218,9 +223,7 @@ with outputs; {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    audacity
     bat
-    bottles
     floorp
     gimp
     libsForQt5.kalk
@@ -235,7 +238,6 @@ with outputs; {
     distrobox
     docker
     docker-compose
-    entr
     eza
     fd
     file
@@ -243,29 +245,23 @@ with outputs; {
     git-crypt
     gnumake
     gnutar
-    gparted
     home-manager
-    jq
     kitty
     lazygit
-    lf
     libgcc
     libreoffice
     libinput-gestures
     libnotify
     neofetch
-    # nodejs_21
-    obsidian
     onlyoffice-bin
     poppler
     pulseaudio
     pv
     rar
-    spice
-    spice-gtk
-    spice-protocol
+    # spice
+    # spice-gtk
+    # spice-protocol
     telegram-desktop
-    tldr
     tmux
     tor
     tor-browser
@@ -280,7 +276,6 @@ with outputs; {
     # virtio-win
     virt-viewer
     wget
-    whatsapp-for-linux
     # win-spice
     wl-clipboard
     wofi

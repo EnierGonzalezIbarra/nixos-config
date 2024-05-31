@@ -9,6 +9,7 @@
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
+    inputs.xremap-flake.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
     # ./ags.nix
@@ -58,6 +59,12 @@
   programs.git.enable = true;
 
   programs.vscode.enable = true;
+  programs.neovim = {
+    enable = true;
+    withPython3 = true;
+    withRuby = true;
+    withNodeJs = true;
+  };
 
   programs.fzf = {
     enable = true;
@@ -75,6 +82,22 @@
     options = [
       "--cmd cd"
     ];
+  };
+
+  services.xremap = {
+    withHypr = true;
+    config = {
+      keymap = [
+        {
+          name = "main remaps";
+          remap = {
+            super-y = {
+              launch = "kitty";
+            };
+          };
+        }
+      ];
+    };
   };
 
   # Nicely reload system units when changing configs
