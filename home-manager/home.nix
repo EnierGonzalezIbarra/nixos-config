@@ -3,6 +3,8 @@
 , lib
 , config
 , pkgs
+, name
+, username
 , ...
 }: {
   # You can import other home-manager modules here
@@ -44,7 +46,6 @@
   };
 
   # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
   home.packages = with pkgs; [
   ];
 
@@ -64,6 +65,10 @@
     withPython3 = true;
     withRuby = true;
     withNodeJs = true;
+    extraPackages = with pkgs; [
+      fzf
+      clang
+    ];
   };
 
   programs.fzf = {
@@ -86,6 +91,7 @@
 
   services.xremap = {
     withHypr = true;
+    # withWlroots = true;
     config = {
       keymap = [
         {

@@ -4,10 +4,12 @@
 , lib
 , config
 , pkgs
-, outputs
+, name
+, username
 , ...
 }:
-with outputs; {
+
+{
   imports = [
     # Use modules from other flakes (such as nixos-hardware):
     inputs.sddm-sugar-candy-nix.nixosModules.default
@@ -24,7 +26,7 @@ with outputs; {
     overlays = [
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
-
+      inputs.sddm-sugar-candy-nix.overlays.default
       # Or define it inline, for example:
       # (final: prev: {
       #   hi = final.hello.overrideAttrs (oldAttrs: {
@@ -49,7 +51,6 @@ with outputs; {
   nix.registry = (lib.mapAttrs (_: flake: { inherit flake; })) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
 
   # This will additionally add your inputs to the system's legacy channels
-  # Making legacy nix commands consistent as well, awesome!
   nix.nixPath = [ "/etc/nix/path" ];
   environment.etc =
     lib.mapAttrs'
@@ -78,13 +79,10 @@ with outputs; {
 
   networking.hostName = "nixos"; # Define your hostname.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "https://10.8.6.50:3128/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain,*cujae.edu.cu";
-  # networking.nftables.enable = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.nftables.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -128,10 +126,10 @@ with outputs; {
 
   programs.light.enable = true;
 
-  # programs = {
-  #   dconf.enable = true;
-  #   direnv.enable = true;
-  # };
+  programs = {
+    dconf.enable = true;
+    direnv.enable = true;
+  };
 
   # Configure keymaps
   services.xserver.xkb = {
@@ -139,11 +137,10 @@ with outputs; {
     variant = "";
     options = "shift:both_capslock";
   };
-
   services.xserver.xkb.extraLayouts.us-custom = {
     description = "US layout custom symbols";
     languages = [ "eng" ];
-    symbolsFile = /home/enier/xkb_custom_layout/symbols/us-custom;
+    symbolsFile = /home/${username}/xkb_custom_layout/symbols/us-custom;
   };
   console.useXkbConfig = true;
 
@@ -186,17 +183,19 @@ with outputs; {
   };
 
   # Enable bluetooth and power up controller on boot
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
 
   # Needed for xremap
   hardware.uinput.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.enier = {
+  users.users.${username} = {
     isNormalUser = true;
     description = "${name}";
     extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "input" "uinput" "libvirtd" "socksified" ];
@@ -220,13 +219,11 @@ with outputs; {
   # Don't require password for members of "wheel" to use sudo
   security.sudo.wheelNeedsPassword = false;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     bat
+    bitwarden
     floorp
     clang
-    gimp
     libsForQt5.kalk
     pandoc
     thunderbird
@@ -235,11 +232,7 @@ with outputs; {
     btop
     cargo
     calibre
-    coreutils-full
-    dbus
     distrobox
-    docker
-    docker-compose
     eza
     fd
     file
@@ -247,44 +240,33 @@ with outputs; {
     git-crypt
     gnumake
     gnutar
-    home-manager
+    gparted
     kitty
     lazygit
-    libgcc
     libreoffice
     libinput-gestures
     libnotify
     llvmPackages.bintools
-    neofetch
-    onlyoffice-bin
     poppler
-    pulseaudio
     pv
-    python2
     python3
-    rar
     rustc
     # spice
     # spice-gtk
     # spice-protocol
-    telegram-desktop
     tmux
     tor
-    tor-browser
     tree
     udisks
     unar
-    unrar
-    unzip
     usbutils
     vim
     vlc
     # virtio-win
-    virt-viewer
+    # virt-viewer
     wget
     # win-spice
     wl-clipboard
-    wofi
     yazi
     zip
   ];
@@ -307,23 +289,15 @@ with outputs; {
         host = "127.0.0.1";
         port = 9050;
       };
-      cujae = {
-        enable = true;
-        type = "https";
-        host = "10.8.6.50";
-        port = 3128;
-      };
     };
   };
 
   programs.nh = {
     enable = true;
     clean.enable = true;
-    # clean.extraArgs = "--keep-since 7d --keep 5";
-    flake = "/home/enier/dotfiles/nix";
+    flake = "/home/${username}/dotfiles/nix";
     package = inputs.nh.packages.x86_64-linux.default;
   };
-
 
   programs.npm = {
     enable = true;
@@ -334,11 +308,10 @@ with outputs; {
       '';
   };
 
-
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      enier = import ../home-manager/home.nix;
+      ${username} = import ../home-manager/home.nix;
     };
   };
 
@@ -398,7 +371,6 @@ with outputs; {
       };
     };
   };
-
   programs.virt-manager.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are

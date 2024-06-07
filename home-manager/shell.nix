@@ -28,7 +28,6 @@ let
     v = "nvim";
     y = "yazi";
 
-    sv = "distrobox-enter --root -n Arch -- sudo -e ./";
     vconf = "cd ~/.config/nvim/lua/custom && nvim && cd -";
     vconf-all = "cd ~/.config/nvim && nvim && cd -";
 

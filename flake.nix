@@ -15,6 +15,7 @@
 
     xremap-flake.url = "github:xremap/nix-flake";
     
+
     # matugen.url = "github:InioX/matugen";
     # ags.url = "github:Aylur/ags";
     # astal.url = "github:Aylur/astal";
@@ -31,25 +32,25 @@
     home-manager,
     ...
   } @ inputs:
-  let
-    inherit (self) outputs;
-  in {
+  let 
     name = "Enier Gonzalez Ibarra";
     username = "enier";
-    packages.x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.callPackage ./home-manager/ags {inherit inputs;};
+  in
+  {
+    packages.x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.callPackage ./home-manager/ags {inherit inputs name username;};
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit inputs outputs;
+          inherit inputs name username;
           # asztal = self.packages.x86_64-linux.default;
         };
         # > Our main nixos configuration file <
         modules = [./nixos/configuration.nix];
       };
       proxiedNixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs name username;};
         # > Use redsocks to implement a proxy <
         modules = [
           ./nixos/proxy.nix
@@ -64,7 +65,7 @@
        "enier@nixos" = home-manager.lib.homeManagerConfiguration {
          pkgs = nixpkgs.legacyPackages.x86_64-linux;  #Home-manager requires 'pkgs' instance
          extraSpecialArgs = {
-           inherit inputs outputs;
+           inherit inputs name username;
            # asztal = self.packages.x86_64-linux.default;
          };
           # > Our main home-manager configuration file <

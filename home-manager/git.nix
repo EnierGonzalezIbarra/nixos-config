@@ -23,7 +23,6 @@ in
     };
     userEmail = email;
     userName = name;
-    # signingkey = /home/enier/.ssh/github_sign.pub;
   };
 
 }

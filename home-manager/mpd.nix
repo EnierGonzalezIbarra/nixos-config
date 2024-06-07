@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, inputs, username, ... }:
 {
   services = {
     mpdris2.enable = true;
