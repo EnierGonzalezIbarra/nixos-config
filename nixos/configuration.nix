@@ -247,13 +247,16 @@
     libinput-gestures
     libnotify
     llvmPackages.bintools
+    ngspice
+    nodejs
+    polkit_gnome
     poppler
     pv
     python3
     rustc
-    # spice
-    # spice-gtk
-    # spice-protocol
+    spice
+    spice-gtk
+    spice-protocol
     tmux
     tor
     tree
@@ -262,11 +265,12 @@
     usbutils
     vim
     vlc
-    # virtio-win
-    # virt-viewer
+    virtio-win
+    virt-viewer
     wget
-    # win-spice
+    win-spice
     wl-clipboard
+    xorg.xhost
     yazi
     zip
   ];
@@ -310,6 +314,7 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
+    backupFileExtension = "bak";
     users = {
       ${username} = import ../home-manager/home.nix;
     };

@@ -36,6 +36,7 @@ pkgs,
         # "swaybg -i ~/photos/wallpapers/wallpaper.png"
         # ''swayidle -w timeout 1800 'swaylock -f -i ~/photos/wallpapers/wallpaper.png' timeout 1805 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "swaylock -f -i ~/photos/wallpapers/wallpaper.png"''
         "hyprctl setcursor ${custom.cursor} ${custom.fontsize}"
+        "xhost + local:"
         # "swaync"
       ];
       input = {
@@ -99,8 +100,8 @@ pkgs,
       };
       misc = {
         vrr = 1;
-        disable_hyprland_logo  = true;
-        disable_splash_rendering = true;
+        # disable_hyprland_logo  = true;
+        # disable_splash_rendering = true;
       };
       bind = [
         # Exit to tty
