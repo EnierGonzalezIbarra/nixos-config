@@ -198,7 +198,7 @@
   users.users.${username} = {
     isNormalUser = true;
     description = "${name}";
-    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "input" "uinput" "libvirtd" "socksified" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" "input" "uinput" "libvirtd" "socksified" "video" ];
     initialPassword = "theLinuxMan";
     packages = with pkgs; [
       microsoft-edge
@@ -249,6 +249,7 @@
     llvmPackages.bintools
     ngspice
     nodejs
+    octaveFull
     polkit_gnome
     poppler
     pv
@@ -308,7 +309,7 @@
     npmrc =
       ''
         timeout=10000000
-        https-proxy=127.0.0.1:9050
+        proxy=10.8.6.50:3128
       '';
   };
 
