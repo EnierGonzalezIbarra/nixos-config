@@ -241,6 +241,7 @@
     gnumake
     gnutar
     gparted
+    jdk
     kitty
     lazygit
     libreoffice
