@@ -251,6 +251,7 @@
     ngspice
     nodejs
     octaveFull
+    pkg-config
     polkit_gnome
     poppler
     pv
