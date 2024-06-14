@@ -14,7 +14,7 @@
     inputs.xremap-flake.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
-    # ./ags.nix
+    ./ags.nix
     ./mpd.nix
     ./shell.nix
     ./hyprland-rice

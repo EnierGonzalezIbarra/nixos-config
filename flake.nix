@@ -16,10 +16,10 @@
     xremap-flake.url = "github:xremap/nix-flake";
     
 
-    # matugen.url = "github:InioX/matugen";
-    # ags.url = "github:Aylur/ags";
-    # astal.url = "github:Aylur/astal";
-    # stm.url = "github:Aylur/stm";
+    matugen.url = "github:InioX/matugen";
+    ags.url = "github:Aylur/ags";
+    astal.url = "github:Aylur/astal";
+    stm.url = "github:Aylur/stm";
 
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
