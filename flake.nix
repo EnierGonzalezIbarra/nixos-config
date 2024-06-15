@@ -44,7 +44,7 @@
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs name username;
-          # asztal = self.packages.x86_64-linux.default;
+          asztal = self.packages.x86_64-linux.default;
         };
         # > Our main nixos configuration file <
         modules = [./nixos/configuration.nix];
@@ -66,7 +66,7 @@
          pkgs = nixpkgs.legacyPackages.x86_64-linux;  #Home-manager requires 'pkgs' instance
          extraSpecialArgs = {
            inherit inputs name username;
-           # asztal = self.packages.x86_64-linux.default;
+           asztal = self.packages.x86_64-linux.default;
          };
           # > Our main home-manager configuration file <
          modules = [./home-manager/home.nix];

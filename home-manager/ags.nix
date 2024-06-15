@@ -5,7 +5,7 @@
   ];
 
   home.packages = with pkgs; [
-    asztal
+    # asztal
     bun
     dart-sass
     fd
@@ -32,7 +32,7 @@
 
   programs.ags = {
     enable = true;
-    configDir = ./ags;
+    # configDir = ./ags;
     extraPackages = with pkgs; [
       accountsservice
     ];
