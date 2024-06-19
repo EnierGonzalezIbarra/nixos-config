@@ -67,7 +67,6 @@
     withNodeJs = true;
     extraPackages = with pkgs; [
       fzf
-      libclang
     ];
   };
 

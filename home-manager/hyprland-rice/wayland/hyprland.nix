@@ -33,7 +33,7 @@ pkgs,
       ];
       exec-once = [
         # "waybar"
-        "ags -b hypr"
+        "ags -c ~/.config/ags/config.js"
         # "swaybg -i ~/photos/wallpapers/wallpaper.png"
         # ''swayidle -w timeout 1800 'swaylock -f -i ~/photos/wallpapers/wallpaper.png' timeout 1805 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "swaylock -f -i ~/photos/wallpapers/wallpaper.png"''
         "hyprctl setcursor ${custom.cursor} ${custom.fontsize}"

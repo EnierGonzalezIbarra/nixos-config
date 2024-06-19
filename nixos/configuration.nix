@@ -220,10 +220,27 @@
   security.sudo.wheelNeedsPassword = false;
 
   environment.systemPackages = with pkgs; [
+    tree-sitter
+    stylua
+    rust-analyzer
+    black
+    bashdb
+    lldb
+    vscode-langservers-extracted
+    python312Packages.debugpy
+    emmet-language-server
+    isort
+    lua-language-server
+    marksman
+    mdformat
+    mypy
+    nixpkgs-fmt
+    nodePackages.prettier
+    nixd
     bat
     bitwarden
     floorp
-    clang
+    clang-tools
     libsForQt5.kalk
     pandoc
     thunderbird
